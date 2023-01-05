@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import RegisterForm, CartAddProductForm
+from .forms import RegisterForm, CartAddProductForm, Checkout
 from .models import Book
 
 
@@ -56,3 +56,8 @@ def book_detail(request, id):
     book = get_object_or_404(Book, id=id)
     cart_product_form = CartAddProductForm()
     return render(request, "shop/book_detail.html", {"book": book, 'cart_product_form': cart_product_form})
+
+
+def checkout(request):
+    form = Checkout()
+    return render(request, 'shop/checkout.html', {'form': form})
