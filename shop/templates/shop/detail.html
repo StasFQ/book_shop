@@ -21,14 +21,14 @@
             {% with product=item.product %}
                 <tr>
                     <td>
-                        <a href="{{ product.get_absolute_url }}">
+                        <a href="{{ book.get_absolute_url }}">
 
 
 
                         </a>
                     </td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ item.quantity }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.quantity }}</td>
 
                     <td class="num">${{ item.price }}</td>
                     <td class="num">${{ item.total_price }}</td>

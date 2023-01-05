@@ -35,7 +35,7 @@ def cart_add(request, book_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
-    return redirect('cart:cart_detail')
+    return redirect('cart_detail')
 
 
 def cart_detail(request):
@@ -51,3 +51,8 @@ def search_books(request):
     context = {"books": books, "myFilter": myFilter}
     return render(request, "shop/search_book.html", context)
 
+
+def book_detail(request, id):
+    book = get_object_or_404(Book, id=id)
+    cart_product_form = CartAddProductForm()
+    return render(request, "shop/book_detail.html", {"book": book, 'cart_product_form': cart_product_form})
