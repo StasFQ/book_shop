@@ -7,3 +7,5 @@ class Book(models.Model):
     quantity = models.IntegerField()
     id_in_store = models.IntegerField()
 
+    def __str__(self):
+        return self.title
