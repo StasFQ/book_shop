@@ -1,6 +1,8 @@
+from .tasks import send_order_to_store
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_POST
 
+from . import tasks
 from .cart import Cart
 from .filters import BookFilter
 from django.contrib.auth import authenticate, login, logout
@@ -9,8 +11,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import RegisterForm, CartAddProductForm, Checkout
-from .models import Book
+from .forms import RegisterForm, CartAddProductForm, Checkout, OrderCreateForm
+from .models import Book, OrderItem
 
 
 class RegisterFormPage(generic.FormView):
@@ -57,6 +59,29 @@ def book_detail(request, id):
     cart_product_form = CartAddProductForm()
     return render(request, "shop/book_detail.html", {"book": book, 'cart_product_form': cart_product_form})
 
+
+def order_create(request):
+    cart = Cart(request)
+    if request.method == 'POST':
+        form = OrderCreateForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.user = request.user
+            order.status = False
+            order.save()
+            for item in cart:
+                OrderItem.objects.create(order=order,
+                                         book=item['product'],
+                                         quantity=item['quantity'])
+
+            cart.clear()
+            tasks.send_order_to_store.delay(order.id)
+            return render(request, 'shop/order_created.html',
+                          {'order': order})
+    else:
+        form = OrderCreateForm
+    return render(request, 'shop/orders.html',
+                  {'cart': cart, 'form': form})
 
 def checkout(request):
     form = Checkout()
