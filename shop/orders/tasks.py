@@ -26,12 +26,9 @@ def send_order_to_store(order_id: int):
 def send_order_item_to_store(order_id: int):
     order = Order.objects.get(id=order_id)
     order_items = order.orderitem_set.all()
-    body = {
-    'order_items': [
-             {
-                 'book_store_id': item.book.id_in_store,
-                 'quantity': item.quantity
-             } for item in order_items
-         ]
-    }
-    requests.post('http://store:8001/api/create_item', json=body)
+    for item in order_items:
+        body = {
+                 "quantity": item.quantity,
+                 "book": item.book.id_in_store,
+            }
+        requests.post('http://storage:8001/api/create_item/', json=body)

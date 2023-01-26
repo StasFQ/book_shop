@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e8p2tnq$%@bv_k97+rj=d%5c1x#fw!+ir3%$z+)qbjbj$y84#m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -137,3 +137,11 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CART_SESSION_ID = 'cart'
+LOGIN_REDIRECT_URL = "/book_list/"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "mailhog"
+EMAIL_PORT = "1025"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_USE_SSL = False

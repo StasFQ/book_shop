@@ -84,6 +84,7 @@ def order_create(request):
     return render(request, 'shop/orders.html',
                   {'cart': cart, 'form': form})
 
+
 def checkout(request):
     form = Checkout()
     return render(request, 'shop/checkout.html', {'form': form})
