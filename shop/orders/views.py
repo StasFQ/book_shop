@@ -76,7 +76,7 @@ def order_create(request):
 
             cart.clear()
             tasks.send_order_to_store.delay(order.id)
-            tasks.send_order_item_to_store.delay(order.id)
+            #tasks.send_order_item_to_store.delay(order.id)
             return render(request, 'shop/order_created.html',
                           {'order': order})
     else:

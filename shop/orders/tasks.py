@@ -10,9 +10,15 @@ from .models import Order
 @shared_task()
 def send_order_to_store(order_id: int):
     order = Order.objects.get(id=order_id)
-    #order_items = order.orderitem_set.all()
+    order_items = order.orderitem_set.all()
 
     body = {
+        "order_item": [
+            {
+                "quantity": item.quantity,
+                "book": item.book.id_in_store,
+            }for item in order_items
+        ],
         "user_email": order.user.email,
         "status": order.status,
         "delivery_adress": order.adress,
@@ -26,9 +32,16 @@ def send_order_to_store(order_id: int):
 def send_order_item_to_store(order_id: int):
     order = Order.objects.get(id=order_id)
     order_items = order.orderitem_set.all()
-    for item in order_items:
-        body = {
-                 "quantity": item.quantity,
+    body = {
+            #"user_email": order.user.email,
+            #"status": order.status,
+            #"delivery_adress": order.adress,
+            #"order_id_in_shop": order.id,
+            "order": [
+                {"quantity": item.quantity,
                  "book": item.book.id_in_store,
+                 }for item in order_items
+                ]
             }
-        requests.post('http://storage:8001/api/create_item/', json=body)
+
+    requests.post('http://storage:8001/api/create_item/', json=body)
