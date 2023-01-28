@@ -37,6 +37,7 @@ def cart_add(request, book_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
+
     return redirect('cart_detail')
 
 
@@ -76,7 +77,6 @@ def order_create(request):
 
             cart.clear()
             tasks.send_order_to_store.delay(order.id)
-            #tasks.send_order_item_to_store.delay(order.id)
             return render(request, 'shop/order_created.html',
                           {'order': order})
     else:
