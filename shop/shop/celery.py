@@ -15,9 +15,10 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'pars-every-odd-hour': {
         'task': 'orders.tasks.sync_orders',
-        'schedule': crontab()
+        'schedule': crontab(minute=0)
     }
 }
+
 
 @app.task(bind=True)
 def debug_task(self):

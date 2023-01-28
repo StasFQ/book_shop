@@ -1,11 +1,11 @@
-from .tasks import send_order_to_store
-from django.shortcuts import render, get_object_or_404
+
+from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_POST
 
 from . import tasks
 from .cart import Cart
 from .filters import BookFilter
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
