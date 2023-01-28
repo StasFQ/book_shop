@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.db import models
+from django_lifecycle import LifecycleModelMixin, hook, LifecycleModel, AFTER_UPDATE
 
 
 class Book(models.Model):
@@ -12,10 +14,17 @@ class Book(models.Model):
         return self.title
 
 
-class Order(models.Model):
+class Order(LifecycleModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.BooleanField()
     adress = models.CharField(max_length=254)
+
+    @hook(AFTER_UPDATE, when="status", was=0, is_now=1)
+    def on_status(self):
+        send_mail('Order in a bookstore', 'You order have a new status: Success, wait for the delivery'
+                                          f' of the purchase', 'bookstore@gmail.com',
+                  [self.user.email],
+                  fail_silently=False)
 
 
 class OrderItem(models.Model):

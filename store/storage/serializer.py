@@ -16,11 +16,9 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        #fields = ['user_email', 'status', 'delivery_adress', 'order_id_in_shop', 'order_item']
         fields = '__all__'
 
     def create(self, validated_data):
-       # order_data = validated_data.pop('order_item')
         order = Order.objects.create(user_email=validated_data['user_email'],
                                      status=validated_data['status'],
                                      delivery_adress=validated_data['delivery_adress'],

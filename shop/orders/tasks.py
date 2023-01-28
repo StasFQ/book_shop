@@ -1,9 +1,13 @@
-
+from django.core.mail import send_mail as django_send_mail
 import requests
 from celery import shared_task
 
-
 from .models import Order
+
+
+@shared_task()
+def send_email(subject, text, email_sender):
+    django_send_mail(subject, text, email_sender, ['admin@example.com'])
 
 
 @shared_task()

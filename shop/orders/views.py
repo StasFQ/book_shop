@@ -1,11 +1,11 @@
-from .tasks import send_order_to_store
-from django.shortcuts import render, get_object_or_404
+
+from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_POST
 
 from . import tasks
 from .cart import Cart
 from .filters import BookFilter
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
@@ -18,7 +18,7 @@ from .models import Book, OrderItem
 class RegisterFormPage(generic.FormView):
     template_name = 'registration/register.html'
     form_class = RegisterForm
-    success_url = reverse_lazy('/')
+    success_url = reverse_lazy('/book_list/')
 
     def form_valid(self, form):
         user = form.save()
@@ -74,7 +74,10 @@ def order_create(request):
                 OrderItem.objects.create(order=order,
                                          book=item['product'],
                                          quantity=item['quantity'])
-
+            subject = 'Order create'
+            text = 'I create order'
+            email_sender = request.user.email
+            tasks.send_email.delay(subject, text, email_sender)
             cart.clear()
             tasks.send_order_to_store.delay(order.id)
             return render(request, 'shop/order_created.html',

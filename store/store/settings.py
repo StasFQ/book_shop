@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'foo'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-h&n=4(o&)_1ok%t3n&7ra@oh#gqien#do*$of^*0$%rf!g=(x_')
 
 DEBUG = True
 
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'storage',
     'rest_framework',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +127,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8001']
-
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-}
