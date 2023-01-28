@@ -1,6 +1,5 @@
 import django_filters
 from django_filters import CharFilter
-
 from .models import Book
 
 
@@ -11,5 +10,3 @@ class BookFilter(django_filters.FilterSet):
     class Meta:
         model = Book
         fields = '__all__'
-
-

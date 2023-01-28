@@ -1,8 +1,7 @@
-import datetime
+
 import requests
 from celery import shared_task
-from django.core.mail import send_mail as django_send_mail
-from celery import app
+
 
 from .models import Order
 
@@ -29,19 +28,10 @@ def send_order_to_store(order_id: int):
 
 
 @shared_task()
-def send_order_item_to_store(order_id: int):
-    order = Order.objects.get(id=order_id)
-    order_items = order.orderitem_set.all()
-    body = {
-            #"user_email": order.user.email,
-            #"status": order.status,
-            #"delivery_adress": order.adress,
-            #"order_id_in_shop": order.id,
-            "order": [
-                {"quantity": item.quantity,
-                 "book": item.book.id_in_store,
-                 }for item in order_items
-                ]
-            }
-
-    requests.post('http://storage:8001/api/create_item/', json=body)
+def sync_orders():
+    r = requests.get('http://storage:8001/api/get_status/')
+    orders_from_store = r.json()
+    for store_order in orders_from_store:
+        order = Order.objects.get(id=store_order['order_id_in_shop'])
+        order.status = store_order['status']
+        order.save()

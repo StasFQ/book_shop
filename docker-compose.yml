@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  shop:
+  shop: &shop
     container_name: shop
     build: ./shop
     command: python3 manage.py runserver 0.0.0.0:8000
@@ -9,11 +9,29 @@ services:
       - ./shop:/usr/src/shop/
     networks:
       - shop_db_network
-    ports:
-      - "8000:8000"
+      - nginx_network
+    expose:
+      - 8000
     env_file:
       - ./.env.dev
 
+  storage:
+    container_name: store
+    build: ./store
+    command: python3 manage.py runserver 0.0.0.0:8001
+    volumes:
+      - ./store:/usr/src/store/
+    networks:
+      - storage_db_network
+      - nginx_network
+    expose:
+      - 8001
+    environment:
+      DB_NAME: "storage"
+      DB_USER: "postgres"
+      DB_PASSWORD: "postgres"
+      DB_HOST: "db_storage"
+      DB_PORT: "5432"
 
   db:
     container_name: db
@@ -29,9 +47,74 @@ services:
       - POSTGRES_PASSWORD=hello_django
       - POSTGRES_DB=hello_django_dev
 
+  db_storage:
+    container_name: db_storage
+    image: postgres:14-alpine
+    volumes:
+      - db_storage_volume:/var/lib/postgresql/data
+    networks:
+      - storage_db_network
+    expose:
+      - 5432
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'storage'
+
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    restart: on-failure
+    networks:
+      - nginx_network
+    ports:
+      - "80:80"
+      - "8001:8001"
+      - "8025:8025"
+
+  celery:
+    <<: *shop
+    container_name: celery
+    restart: on-failure
+    expose: [ ]
+    networks:
+      - nginx_network
+      - shop_db_network
+    command: celery -A shop worker -B -l INFO
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.8.0-alpine
+    restart: on-failure
+    networks:
+      - shop_db_network
+      - nginx_network
+    expose:
+      - 5432
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: always
+    user: root
+    expose:
+        - 1025
+        - 8025
+    networks:
+      - shop_db_network
+      - nginx_network
+
 networks:
   shop_db_network:
+  storage_db_network:
+  nginx_network:
 
 
 volumes:
     db:
+    db_storage_volume:
+    rabbitmq_data:

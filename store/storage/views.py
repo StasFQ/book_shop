@@ -14,5 +14,4 @@ class CreateOrder(generics.CreateAPIView):
 class GetOrderStatus(generics.ListAPIView):
     serializer_class = OrderStatusSerializer
     queryset = Order.objects.all()
-    filterset_class = ProductFilter
-    filterset_fields = ['order_id_in_shop']
+    #filterset_class = ProductFilter
