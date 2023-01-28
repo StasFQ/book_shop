@@ -18,7 +18,7 @@ from .models import Book, OrderItem
 class RegisterFormPage(generic.FormView):
     template_name = 'registration/register.html'
     form_class = RegisterForm
-    success_url = reverse_lazy('/')
+    success_url = reverse_lazy('/book_list/')
 
     def form_valid(self, form):
         user = form.save()
