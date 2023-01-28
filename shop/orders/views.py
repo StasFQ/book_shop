@@ -74,7 +74,10 @@ def order_create(request):
                 OrderItem.objects.create(order=order,
                                          book=item['product'],
                                          quantity=item['quantity'])
-
+            subject = 'Order create'
+            text = 'I create order'
+            email_sender = request.user.email
+            tasks.send_email.delay(subject, text, email_sender)
             cart.clear()
             tasks.send_order_to_store.delay(order.id)
             return render(request, 'shop/order_created.html',
