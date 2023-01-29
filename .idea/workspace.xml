@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0998743-e8b9-4c68-b88f-f41ad0375d86" name="Changes" comment="add cache">
-      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/.env.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/conf.d/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/conf.d/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/celerybeat-schedule" beforeDir="false" afterPath="$PROJECT_DIR$/shop/celerybeat-schedule" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +105,7 @@
       <workItem from="1674937184105" duration="4893000" />
       <workItem from="1674942145963" duration="1193000" />
       <workItem from="1674976354355" duration="296000" />
-      <workItem from="1674976658759" duration="6301000" />
+      <workItem from="1674976658759" duration="6631000" />
     </task>
     <task id="LOCAL-00001" summary="create new branch">
       <created>1674918018132</created>
