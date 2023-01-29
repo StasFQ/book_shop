@@ -108,6 +108,18 @@ services:
       - shop_db_network
       - nginx_network
 
+  redis:
+    container_name: redis
+    image: redis:5.0.6-alpine
+    restart: on-failure
+    networks:
+      - shop_db_network
+    ports:
+      - '6379:6379'
+    command: redis-server
+    volumes:
+      - redis:/var/lib/redis/data
+
 networks:
   shop_db_network:
   storage_db_network:
@@ -118,3 +130,4 @@ volumes:
     db:
     db_storage_volume:
     rabbitmq_data:
+    redis:

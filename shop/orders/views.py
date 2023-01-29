@@ -1,5 +1,6 @@
 
 from django.shortcuts import get_object_or_404
+from django.views.decorators.cache import cache_page
 from django.views.decorators.http import require_POST
 
 from . import tasks
@@ -55,6 +56,7 @@ def search_books(request):
     return render(request, "shop/search_book.html", context)
 
 
+@cache_page(15)
 def book_detail(request, id):
     book = get_object_or_404(Book, id=id)
     cart_product_form = CartAddProductForm()
