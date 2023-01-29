@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for book in books %}
-        <a href="{% url 'book_detail' book.id %}">{{ book }}</a>
+        <p><a href="{% url 'book_detail' book.id %}">{{ book }}</a></p>
     {% endfor %}
     <center>
         <form method="get">

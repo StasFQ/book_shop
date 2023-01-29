@@ -120,6 +120,17 @@ services:
     volumes:
       - redis:/var/lib/redis/data
 
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - shop_db_network
+
 networks:
   shop_db_network:
   storage_db_network:
