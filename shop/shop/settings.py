@@ -73,6 +73,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shop.wsgi.application'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': "redis://redis:6379/0",
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
