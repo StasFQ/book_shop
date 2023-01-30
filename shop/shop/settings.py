@@ -143,7 +143,7 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CART_SESSION_ID = 'cart'
-LOGIN_REDIRECT_URL = "/book_list/"
+LOGIN_REDIRECT_URL = "/profile/"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "mailhog"

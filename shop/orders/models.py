@@ -22,7 +22,7 @@ class Order(LifecycleModel):
     @hook(AFTER_UPDATE, when="status", was=0, is_now=1)
     def on_status(self):
         send_mail('Order in a bookstore', 'You order have a new status: Success, wait for the delivery'
-                                          f' of the purchase', 'bookstore@gmail.com',
+                                          ' of the purchase', 'bookstore@gmail.com',
                   [self.user.email],
                   fail_silently=False)
 
