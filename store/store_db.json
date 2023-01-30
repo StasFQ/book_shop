@@ -1,0 +1,394 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$yzCZmVKNdS6sfCTMgnqpwg$Rv6jSIU70+lU/36bCkS+i3RehX6znJUvX0yzu3EpfQI=",
+    "last_login": "2023-01-30T12:25:00.126Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example1.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-24T14:18:27.210Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "storage.book",
+  "pk": 1,
+  "fields": {
+    "title": "Harry Potter",
+    "price": "15.01"
+  }
+},
+{
+  "model": "storage.book",
+  "pk": 2,
+  "fields": {
+    "title": "Rings",
+    "price": "15.00"
+  }
+},
+{
+  "model": "storage.book",
+  "pk": 3,
+  "fields": {
+    "title": "History",
+    "price": "10.00"
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 77,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 126
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 78,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Odessa",
+    "order_id_in_shop": 127
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 79,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Lviv",
+    "order_id_in_shop": 128
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 80,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 129
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 81,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Odessa",
+    "order_id_in_shop": 130
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 82,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Odessa",
+    "order_id_in_shop": 131
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 83,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 132
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 84,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 133
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 85,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 134
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 86,
+  "fields": {
+    "user_email": "igor@gmail.com",
+    "status": true,
+    "delivery_adress": "Ternopol",
+    "order_id_in_shop": 136
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 87,
+  "fields": {
+    "user_email": "igor@gmail.com",
+    "status": true,
+    "delivery_adress": "Ternopol",
+    "order_id_in_shop": 137
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 88,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": false,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 138
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 89,
+  "fields": {
+    "user_email": "stas3695@ukr.net",
+    "status": false,
+    "delivery_adress": "new your",
+    "order_id_in_shop": 139
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 90,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": false,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 141
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 91,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": false,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 142
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 92,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": false,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 143
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 93,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": false,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 145
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 13,
+  "fields": {
+    "order": 77,
+    "book": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 14,
+  "fields": {
+    "order": 78,
+    "book": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 15,
+  "fields": {
+    "order": 79,
+    "book": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 16,
+  "fields": {
+    "order": 80,
+    "book": 1,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 17,
+  "fields": {
+    "order": 81,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 18,
+  "fields": {
+    "order": 81,
+    "book": 2,
+    "quantity": 6
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 19,
+  "fields": {
+    "order": 82,
+    "book": 1,
+    "quantity": 3
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 20,
+  "fields": {
+    "order": 82,
+    "book": 2,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 21,
+  "fields": {
+    "order": 83,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 22,
+  "fields": {
+    "order": 84,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 23,
+  "fields": {
+    "order": 85,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 24,
+  "fields": {
+    "order": 86,
+    "book": 2,
+    "quantity": 15
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 25,
+  "fields": {
+    "order": 86,
+    "book": 1,
+    "quantity": 15
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 26,
+  "fields": {
+    "order": 87,
+    "book": 2,
+    "quantity": 10
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 27,
+  "fields": {
+    "order": 87,
+    "book": 1,
+    "quantity": 3
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 28,
+  "fields": {
+    "order": 88,
+    "book": 1,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 29,
+  "fields": {
+    "order": 89,
+    "book": 1,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 30,
+  "fields": {
+    "order": 91,
+    "book": 1,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 31,
+  "fields": {
+    "order": 92,
+    "book": 1,
+    "quantity": 10
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 32,
+  "fields": {
+    "order": 93,
+    "book": 3,
+    "quantity": 10
+  }
+}
+]
