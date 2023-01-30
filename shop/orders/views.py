@@ -12,20 +12,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import RegisterForm, CartAddProductForm, Checkout, OrderCreateForm
+from .forms import CartAddProductForm, Checkout, OrderCreateForm
 from .models import Book, OrderItem
-
-
-class RegisterFormPage(generic.FormView):
-    template_name = 'registration/register.html'
-    form_class = RegisterForm
-    success_url = reverse_lazy('/book_list/')
-
-    def form_valid(self, form):
-        user = form.save()
-        user = authenticate(username=user.username, password=form.cleaned_data.get('password1'))
-        login(self.request, user)
-        return super(RegisterFormPage, self).form_valid(form)
 
 
 @require_POST
@@ -76,6 +64,9 @@ def order_create(request):
                 OrderItem.objects.create(order=order,
                                          book=item['product'],
                                          quantity=item['quantity'])
+                b = Book.objects.get(title=item['product'])
+                b.quantity -= item['quantity']
+                b.save()
             subject = 'Order create'
             text = 'I create order'
             email_sender = request.user.email
