@@ -16,7 +16,12 @@ app.conf.beat_schedule = {
     'pars-every-odd-hour': {
         'task': 'orders.tasks.sync_orders',
         'schedule': crontab(minute=0)
+    },
+    'sync_book': {
+        'task': 'orders.tasks.sync_book',
+        'schedule': crontab(minute=0)
     }
+
 }
 
 
