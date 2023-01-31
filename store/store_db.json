@@ -1,0 +1,479 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$yzCZmVKNdS6sfCTMgnqpwg$Rv6jSIU70+lU/36bCkS+i3RehX6znJUvX0yzu3EpfQI=",
+    "last_login": "2023-01-31T08:52:21.718Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example1.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-24T14:18:27.210Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "storage.book",
+  "pk": 1,
+  "fields": {
+    "title": "Harry Potter",
+    "price": "15.01"
+  }
+},
+{
+  "model": "storage.book",
+  "pk": 2,
+  "fields": {
+    "title": "Rings",
+    "price": "15.00"
+  }
+},
+{
+  "model": "storage.book",
+  "pk": 3,
+  "fields": {
+    "title": "Book3",
+    "price": "5.00"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 1,
+  "fields": {
+    "book": 2,
+    "place": "Sofa"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 2,
+  "fields": {
+    "book": 3,
+    "place": "Chair"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 3,
+  "fields": {
+    "book": 1,
+    "place": "Desk"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 4,
+  "fields": {
+    "book": 2,
+    "place": "Desk"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 5,
+  "fields": {
+    "book": 2,
+    "place": "chair"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 6,
+  "fields": {
+    "book": 3,
+    "place": "Chair"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 7,
+  "fields": {
+    "book": 1,
+    "place": "Bed"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 8,
+  "fields": {
+    "book": 2,
+    "place": "Bed"
+  }
+},
+{
+  "model": "storage.bookitem",
+  "pk": 9,
+  "fields": {
+    "book": 2,
+    "place": "Desk"
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 77,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 126
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 78,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Odessa",
+    "order_id_in_shop": 127
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 79,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Lviv",
+    "order_id_in_shop": 128
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 80,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 129
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 81,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Odessa",
+    "order_id_in_shop": 130
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 82,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "Odessa",
+    "order_id_in_shop": 131
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 83,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 132
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 84,
+  "fields": {
+    "user_email": "example@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 133
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 85,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": true,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 134
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 86,
+  "fields": {
+    "user_email": "igor@gmail.com",
+    "status": true,
+    "delivery_adress": "Ternopol",
+    "order_id_in_shop": 136
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 87,
+  "fields": {
+    "user_email": "igor@gmail.com",
+    "status": true,
+    "delivery_adress": "Ternopol",
+    "order_id_in_shop": 137
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 88,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": false,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 138
+  }
+},
+{
+  "model": "storage.order",
+  "pk": 89,
+  "fields": {
+    "user_email": "admin@example.com",
+    "status": false,
+    "delivery_adress": "kiev",
+    "order_id_in_shop": 146
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 13,
+  "fields": {
+    "order": 77,
+    "book": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 14,
+  "fields": {
+    "order": 78,
+    "book": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 15,
+  "fields": {
+    "order": 79,
+    "book": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 16,
+  "fields": {
+    "order": 80,
+    "book": 1,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 17,
+  "fields": {
+    "order": 81,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 18,
+  "fields": {
+    "order": 81,
+    "book": 2,
+    "quantity": 6
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 19,
+  "fields": {
+    "order": 82,
+    "book": 1,
+    "quantity": 3
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 20,
+  "fields": {
+    "order": 82,
+    "book": 2,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 21,
+  "fields": {
+    "order": 83,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 22,
+  "fields": {
+    "order": 84,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 23,
+  "fields": {
+    "order": 85,
+    "book": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 24,
+  "fields": {
+    "order": 86,
+    "book": 2,
+    "quantity": 15
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 25,
+  "fields": {
+    "order": 86,
+    "book": 1,
+    "quantity": 15
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 26,
+  "fields": {
+    "order": 87,
+    "book": 2,
+    "quantity": 10
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 27,
+  "fields": {
+    "order": 87,
+    "book": 1,
+    "quantity": 3
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 28,
+  "fields": {
+    "order": 88,
+    "book": 1,
+    "quantity": 5
+  }
+},
+{
+  "model": "storage.orderitem",
+  "pk": 29,
+  "fields": {
+    "order": 89,
+    "book": 3,
+    "quantity": 6
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 1,
+  "fields": {
+    "order_item": 13,
+    "book_item": 1
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 2,
+  "fields": {
+    "order_item": 17,
+    "book_item": 1
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 3,
+  "fields": {
+    "order_item": 23,
+    "book_item": 2
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 4,
+  "fields": {
+    "order_item": 26,
+    "book_item": 3
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 5,
+  "fields": {
+    "order_item": 28,
+    "book_item": 4
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 6,
+  "fields": {
+    "order_item": 16,
+    "book_item": 5
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 7,
+  "fields": {
+    "order_item": 22,
+    "book_item": 6
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 8,
+  "fields": {
+    "order_item": 21,
+    "book_item": 7
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 9,
+  "fields": {
+    "order_item": 20,
+    "book_item": 8
+  }
+},
+{
+  "model": "storage.orderitembookitem",
+  "pk": 10,
+  "fields": {
+    "order_item": 25,
+    "book_item": 9
+  }
+}
+]
