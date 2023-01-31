@@ -64,9 +64,6 @@ def order_create(request):
                 OrderItem.objects.create(order=order,
                                          book=item['product'],
                                          quantity=item['quantity'])
-                b = Book.objects.get(title=item['product'])
-                b.quantity -= item['quantity']
-                b.save()
             subject = 'Order create'
             text = 'I create order'
             email_sender = request.user.email

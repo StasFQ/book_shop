@@ -13,7 +13,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
-    'pars-every-odd-hour': {
+    'sync_orders': {
         'task': 'orders.tasks.sync_orders',
         'schedule': crontab(minute=0)
     },
