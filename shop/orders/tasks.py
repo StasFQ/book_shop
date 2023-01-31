@@ -2,7 +2,7 @@ from django.core.mail import send_mail as django_send_mail
 import requests
 from celery import shared_task
 
-from .models import Order
+from .models import Order, Book
 
 
 @shared_task()
@@ -39,3 +39,18 @@ def sync_orders():
         order = Order.objects.get(id=store_order['order_id_in_shop'])
         order.status = store_order['status']
         order.save()
+
+
+@shared_task()
+def sync_book():
+    r = requests.get('http://storage:8001/api/book/')
+    if r.status_code == 200:
+        responce = r.json()
+        for r in responce:
+            Book.objects.update_or_create(
+                         title=r['title'],
+                         price=r['price'],
+                         id_in_store=r['id'],
+                         quantity=len(r['book']))
+    else:
+        sync_book.apply_async(countdown=20)
